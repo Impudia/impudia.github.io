@@ -78,7 +78,6 @@ p.nominalBounds = new cjs.Rectangle(-48.5,-13.4,101,33.2);
 			
 			$.ajax({
 		   url: 'https://docs.google.com/forms/d/1NYNAvpe7-BjTP12gRwLEZ_lvm1xqrp8J-_CbbqczuC8/formResponse?entry.1577449213=1&entry.137246807=2&entry.712061633=3&entry.1646931880=4',
-		   type: 'PUT',
 		   success: function(response) {
 		     //...
 		   }
