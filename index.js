@@ -224,6 +224,7 @@ p.nominalBounds = new cjs.Rectangle(-0.5,-87,227,174);
 			
 			$.ajax({
 		   url: finalUrl,
+		   type: "POST",
 		   success: function(response) {
 			console.log("Success")
 		   }
@@ -287,7 +288,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/index_atlas_.png?1591656471577", id:"index_atlas_"}
+		{src:"images/index_atlas_.png?1591657054216", id:"index_atlas_"}
 	],
 	preloads: []
 };
