@@ -215,25 +215,61 @@ p.nominalBounds = new cjs.Rectangle(-0.5,-87,227,174);
 		    finalUrl+="&entry.137246807="+qid;
 		    finalUrl+="&entry.712061633="+result;
 		    finalUrl+="&entry.1646931880="+effort;
+			finalUrl+="&submit=Submit";
 			
 			console.log(finalUrl)
 			
-			
+			//submitGoogleForm(finalUrl);
 		
 			//'https://docs.google.com/forms/d/1NYNAvpe7-BjTP12gRwLEZ_lvm1xqrp8J-_CbbqczuC8/formResponse?entry.1577449213=1&entry.137246807=2&entry.712061633=3&entry.1646931880=4'
 			
 			$.ajax({
 		   url: finalUrl,
 		   type: "POST",
+		   dataType: "jsonp",
+		   success: function(response) {
+			console.log("Success")
+		   }
+			});
+		/*
+			$.ajax({
+		   url: finalUrl,
+		   type: "POST",
+		   contentType: "application/x-www-form-urlencoded",
+		   mode: 'no-cors',
 		   success: function(response) {
 			console.log("Success")
 		   }
 			});
 		
+			*/
 		
 		
 		
 		}
+		
+		
+		function submitGoogleForm(form) {
+		    try {
+		      var data = [].slice.call(form).map(function(control) {
+		        return 'value' in control && control.name ?
+		          control.name + '=' + (control.value === undefined ? '' : control.value) :
+		          '';
+		      }).join('&');
+		      var xhr = new XMLHttpRequest();
+		
+		      xhr.open('POST', form.action + '/formResponse', true);
+		      xhr.setRequestHeader('Accept',
+		          'application/xml, text/xml, */*; q=0.01');
+		      xhr.setRequestHeader('Content-type',
+		          'application/x-www-form-urlencoded; charset=UTF-8');
+		      xhr.send(data);
+		    } catch(e) {}
+		
+		    form.parentNode.className += ' submitted';
+		
+		    return false;
+		  }
 		
 		///////////////////////////////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////////////////
@@ -288,7 +324,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/index_atlas_.png?1591657054216", id:"index_atlas_"}
+		{src:"images/index_atlas_.png?1591739635582", id:"index_atlas_"}
 	],
 	preloads: []
 };
